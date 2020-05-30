@@ -32,12 +32,40 @@ player1 = Player.new({
 
       # Teams
 
-team1 = Team.new({
+      team1 = Team.new({
+        "name" => "Shotos",
+        "country" => "Japan"
+        })
+
+        team1.save()
+
+        team2 = Team.new({
+          "name" => "Muscles",
+          "country" => "Russia"
+          })
+
+          team2.save()
 
 
-})
 
 
+          # Games
+
+          game1 = Game.new({
+            "date" => "01/07/2020",
+            "home_team" => team1.id,
+            "away_team" => team2.id,
+            "result" => "TBC"
+            })
+
+            game1.save()
+
+            game2 = Game.new({
+              "date" => "02/07/2020",
+              "home_team" => team2.id,
+              "away_team" => team1.id,
+              "result" => "TBC"
+              })
 
 
-      # Games
+              game2.save()

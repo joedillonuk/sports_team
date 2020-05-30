@@ -30,7 +30,26 @@ class Player
 
 
 
+  # Class methods
 
+  def self.all()
+    sql = "SELECT * FROM players"
+    pg_result = SqlRunner.run( sql )
+    return pg_result.map { |hash| Player.new( hash ) }
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM players
+    WHERE id = $1"
+    values = [id]
+    pg_result = SqlRunner.run( sql, values )
+    return Player.new( pg_result.first )
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM players"
+    SqlRunner.run( sql )
+  end
 
 
 
