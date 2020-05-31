@@ -7,44 +7,61 @@ Game.delete_all()
 Player.delete_all()
 Team.delete_all()
 
+
+# Teams
+
+team1 = Team.new({
+  "name" => "Shotos",
+  "country" => "Japan"
+  })
+
+  team1.save()
+
+  team2 = Team.new({
+    "name" => "Muscles",
+    "country" => "Russia"
+    })
+
+    team2.save()
+
 # Players
 
 player1 = Player.new({
   "name" => "Ryu",
   "country" => "Japan",
-  "points_won" => 0})
+  "points_won" => 0,
+  "team" => team1.id
+  })
 
   player1.save()
 
   player2 = Player.new({
-    "name" => "Ken",
-    "country" => "USA",
-    "points_won" => 0})
+    "name" => "Akuma",
+    "country" => "Japan",
+    "points_won" => 0,
+    "team" => team1.id})
 
     player2.save()
 
     player3 = Player.new({
       "name" => "Zangief",
       "country" => "Russia",
-      "points_won" => 0})
+      "points_won" => 0,
+      "team" => team2.id
+      })
 
       player3.save()
 
-      # Teams
-
-      team1 = Team.new({
-        "name" => "Shotos",
-        "country" => "Japan"
+      player4 = Player.new({
+        "name" => "Decapre",
+        "country" => "Russia",
+        "points_won" => 0,
+        "team" => team2.id
         })
 
-        team1.save()
+        player4.save()
 
-        team2 = Team.new({
-          "name" => "Muscles",
-          "country" => "Russia"
-          })
 
-          team2.save()
 
 
 

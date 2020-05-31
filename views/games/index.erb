@@ -1,0 +1,22 @@
+<h1>Games</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th></th>
+    <th>Home Team</th>
+    <th></th>
+    <th>Away Team</th>
+  </tr>
+  <% for game in @games %>
+  <tr>
+    <td><a href="/games/<%= game.id %>"><%= game.date %></a></td>
+    <td>|</td>
+    <td><%= game.home_team %></td>
+    <td>|</td>
+    <td> <%= game.away_team %></td>
+  </tr>
+  <% end %>
+</table>
+<br>
+<h4>Add new game</h4>

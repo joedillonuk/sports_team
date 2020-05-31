@@ -12,7 +12,8 @@ CREATE TABLE players (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   country VARCHAR(255),
-  points_won INT
+  points_won INT,
+  team INT REFERENCES teams(id)
 );
 
 CREATE TABLE games (

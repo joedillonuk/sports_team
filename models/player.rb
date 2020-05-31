@@ -2,13 +2,14 @@ require_relative( '../db/sql_runner' )
 
 class Player
 
-  attr_reader :name, :country, :points_won, :id
+  attr_reader :name, :country, :points_won, :team, :id
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @country = options['country']
     @points_won = options['points_won']
+    @team = options['team']
   end
 
   def save()
@@ -16,14 +17,15 @@ class Player
     (
       name,
       country,
-      points_won
+      points_won,
+      team
     )
     VALUES
     (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
     RETURNING id"
-    values = [@name, @country, @points_won]
+    values = [@name, @country, @points_won, @team]
     pg_result = SqlRunner.run(sql, values)
     @id = pg_result.first()['id'].to_i
   end
@@ -33,17 +35,27 @@ class Player
     UPDATE players SET (
       name,
       country,
-      points_won
+      points_won,
+      team
       ) =
       (
-        $1,$2, $3
+        $1,$2, $3, $4
       )
-      WHERE id = $4"
-      values = [@name, @country, @points_won, @id]
+      WHERE id = $5"
+      values = [@name, @country, @points_won, @team, @id]
       pg_result = SqlRunner.run(sql, values)
       updated_player = pg_result[0]
       @id = updated_player['id'].to_i
     end
+
+    def current_team
+        sql = "SELECT * FROM teams WHERE id = $1;"
+        values = [@team]
+        pg_result = SqlRunner.run(sql, values)
+        result = Team.new(pg_result.first)
+        return result
+      end
+
 
   # Class methods
 

@@ -1,0 +1,22 @@
+<h1>Players</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Country</th>
+    <th></th>
+    <th>Current Team</th>
+  </tr>
+  <% for player in @players %>
+  <tr>
+    <td><a href="/players/<%= player.id %>"><%= player.name %></a></td>
+    <td>|</td>
+    <td><%= player.country %></td>
+    <td>|</td>
+    <td><%= player.current_team.name %></td>
+  </tr>
+  <% end %>
+</table>
+<br>
+<h4>Add New Player:</h4>
