@@ -30,7 +30,23 @@ class Game
       @id = pg_result.first()['id'].to_i
     end
 
-
+    def update()
+      sql = "
+      UPDATE games SET (
+        date,
+        home_team,
+        away_team,
+        result
+        ) =
+        (
+          $1,$2, $3, $4
+        )
+        WHERE id = $5"
+        values = [@date, @home_team, @away_team, @result, @id]
+        pg_result = SqlRunner.run(sql, values)
+        updated_game = pg_result[0]
+        @id = updated_game['id'].to_i
+      end
 
 
     # Class methods

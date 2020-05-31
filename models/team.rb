@@ -28,6 +28,22 @@ class Team
   end
 
 
+  def update()
+    sql = "
+    UPDATE teams SET (
+      name,
+      country
+      ) =
+      (
+        $1,$2
+      )
+      WHERE id = $3"
+      values = [@name, @country, @id]
+      pg_result = SqlRunner.run(sql, values)
+      updated_team = pg_result[0]
+      @id = updated_team['id'].to_i
+    end
+
 
 
   # Class methods
