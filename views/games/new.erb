@@ -1,14 +1,31 @@
 <h1>Add a new fixture</h1>
 
-<form class="" action="/games" method="post">
-  <label for="date">Name:</label>
+
+<form action="/games" method="post">
+  <p>
+  <label for="date">Date:</label>
   <input id="date" type="date" name="date" required>
+</p>
+<!-- # Choose Home Team -->
+<p>
+  <label for="home-team-select">Select Home team</label>
+  <select id="home-team-select" name="home_team">
 
-  <label for="home-team">Home Team</label>
-  <input id="home-team" type="text" name="home_team" required>
+    <% for team in @teams %>
+    <option value = "<%= team.id%> "> <%= team.name %> </option>
+<% end %>
+</select>
+</p>
+<!-- # Choose Away Team -->
+<p>
+  <label for="away-team-select">Select Away team</label>
+  <select id="away-team-select" name="away_team">
 
-  <label for="home-team">Away Team</label>
-  <input id="home-team" type="text" name="home_team" required>
-
-  <input type="submit" value="Add Team">
+    <% for team in @teams %>
+    <option value = "<%= team.id%> "> <%= team.name %> </option>
+    <% end %>
+</select>
+</p>
+<BR>
+  <input type="submit" value="Add Fixture">
 </form>

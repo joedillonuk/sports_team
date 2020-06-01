@@ -58,6 +58,15 @@ main {
   flex-direction: row;
 }
 
+.flex--column {
+  flex-direction: column;
+}
+
+form  { display: table;      }
+p     { display: table-row;  }
+label { display: table-cell; }
+input { display: table-cell; }
+
 #content {
   border-left: 1px solid darkred;
   padding-left: 25px;

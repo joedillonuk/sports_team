@@ -48,6 +48,21 @@ class Game
         @id = updated_game['id'].to_i
       end
 
+      def get_home_team()
+        sql = "SELECT * FROM teams WHERE id = $1;"
+        values = [@home_team]
+        pg_result = SqlRunner.run(sql, values)
+        result = Team.new(pg_result.first)
+        return result
+      end
+
+      def get_away_team()
+        sql = "SELECT * FROM teams WHERE id = $1;"
+        values = [@away_team]
+        pg_result = SqlRunner.run(sql, values)
+        result = Team.new(pg_result.first)
+        return result
+      end
 
     # Class methods
 

@@ -12,9 +12,9 @@
   <tr>
     <td><a href="/games/<%= game.id %>"><%= game.date %></a></td>
     <td>|</td>
-    <td><%= game.home_team %></td>
-    <td>|</td>
-    <td> <%= game.away_team %></td>
+    <td><%= game.get_home_team.name %></td>
+    <td> vs </td>
+    <td> <%= game.get_away_team.name %></td>
   </tr>
   <% end %>
 </table>

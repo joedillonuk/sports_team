@@ -3,16 +3,16 @@
 <table>
   <tr>
     <th>Date</th>
-    <th></th>
+    <th> </th>
     <th>Home Team</th>
-    <th></th>
+    <th> </th>
     <th>Away Team</th>
   </tr>
   <tr>
     <td><%= @game.date %></td>
     <td>|</td>
-    <td><%= @game.home_team %></td>
-    <td>|</td>
-    <td> <%= @game.away_team %></td>
+    <td><%= @game.get_home_team.name %></td>
+    <td>vs</td>
+    <td> <%= @game.get_away_team.name %></td>
   </tr>
 </table>

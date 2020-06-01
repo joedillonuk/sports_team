@@ -19,5 +19,6 @@ end
 
 get '/newfixture' do
   @games = Game.all()
+  @teams = Team.all()
   erb ( :"games/new")
 end
