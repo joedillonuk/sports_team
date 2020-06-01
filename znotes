@@ -12,3 +12,9 @@
 
   <input type="submit" value="Add New Player">
 </form> -->
+
+
+
+
+lsof -wni tcp:4567
+kill -9 2735

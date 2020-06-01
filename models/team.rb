@@ -1,5 +1,7 @@
 require_relative( '../db/sql_runner' )
 require_relative( './player.rb')
+require_relative( './team.rb')
+require_relative( './game.rb')
 require( 'pry-byebug' )
 
 
@@ -48,12 +50,12 @@ class Team
     end
 
     def current_players()
-      sql = "SELECT * FROM players WHERE team = $1;"
-      values = [@id]
-      pg_result = SqlRunner.run(sql, values)
-      players = pg_result.map { |player| Player.new(player)}
-      return players
-    end
+     sql = "SELECT * FROM players WHERE team = $1;"
+     values = [@id]
+     pg_result = SqlRunner.run(sql, values)
+     players = pg_result.map { |player| Player.new(player)}
+     return players
+   end
 
 
     # Class methods
