@@ -1,0 +1,22 @@
+<h1>Add a new player</h1>
+
+<form class="" action="/players" method="post">
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" required>
+
+  <label for="country">Country</label>
+  <input id="country" type="text" name="country" required>
+
+  <!-- <label for="points-won">Points won</label> -->
+  <input id="points-won" type="hidden" name="points_won" value="0">
+
+<br>
+  <label for="team-select">Select a team</label>
+  <select id="team-select" name="team">
+
+    <% for team in @teams %>
+    <option value = "<%= team.id%> "> <%= team.name %> </option>
+<% end %>
+
+  <input type="submit" value="Add New Player">
+</form>

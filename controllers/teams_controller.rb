@@ -1,6 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/team.rb' )
+require_relative( '../models/player.rb' )
 also_reload( '../models/*' )
 
 get '/teams' do
@@ -9,10 +10,19 @@ get '/teams' do
   erb ( :"teams/index" )
 end
 
+get '/teams/:id' do
+  @team = Team.find(params['id'].to_i)
+  @players = @team.current_players()
+  erb( :"teams/show_team" )
+end
 
+get '/newteam' do
+  @teams = Team.all()
+  erb ( :"teams/new")
+end
 
-# The Below has not yet been implemented
-get '/players/:id' do
-  @player = Player.find(params['id'].to_i)
-  erb( :"players/show" )
+post '/teams' do
+  @team = Team.new(params)
+  @team.save()
+  redirect to '/teams'
 end

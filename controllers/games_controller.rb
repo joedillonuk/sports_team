@@ -9,11 +9,3 @@ get '/games' do
   @games = Game.all()
   erb ( :"games/index" )
 end
-
-
-
-# The Below has not yet been implemented
-get '/players/:id' do
-  @player = Player.find(params['id'].to_i)
-  erb( :"players/show" )
-end

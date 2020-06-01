@@ -1,4 +1,7 @@
 require_relative( '../db/sql_runner' )
+require_relative( './player.rb')
+require( 'pry-byebug' )
+
 
 class Team
 
@@ -44,29 +47,38 @@ class Team
       @id = updated_team['id'].to_i
     end
 
+    def current_players()
+      sql = "SELECT * FROM players WHERE team = $1;"
+      values = [@id]
+      pg_result = SqlRunner.run(sql, values)
+      players = pg_result.map { |player| Player.new(player)}
+      return players
+    end
 
 
-  # Class methods
+    # Class methods
 
-  def self.all()
-    sql = "SELECT * FROM teams"
-    pg_result = SqlRunner.run( sql )
-    return pg_result.map { |hash| Team.new( hash ) }
+    def self.all()
+      sql = "SELECT * FROM teams"
+      pg_result = SqlRunner.run( sql )
+      return pg_result.map { |hash| Team.new( hash ) }
+    end
+
+    def self.find( id )
+      sql = "SELECT * FROM teams
+      WHERE id = $1"
+      values = [id]
+      pg_result = SqlRunner.run( sql, values )
+      return Team.new( pg_result.first )
+    end
+
+    def self.delete_all
+      sql = "DELETE FROM teams"
+      SqlRunner.run( sql )
+    end
+
+
+
+
+
   end
-
-  def self.find( id )
-    sql = "SELECT * FROM teams
-    WHERE id = $1"
-    values = [id]
-    pg_result = SqlRunner.run( sql, values )
-    return Team.new( pg_result.first )
-  end
-
-  def self.delete_all
-    sql = "DELETE FROM teams"
-    SqlRunner.run( sql )
-  end
-
-
-
-end

@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner' )
+require_relative( './team.rb')
 
 class Player
 
@@ -8,8 +9,8 @@ class Player
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @country = options['country']
-    @points_won = options['points_won']
-    @team = options['team']
+    @points_won = options['points_won'].to_i
+    @team = options['team'].to_i
   end
 
   def save()
