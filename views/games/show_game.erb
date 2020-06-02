@@ -1,4 +1,9 @@
-<h1><%= @game.date %> </h1>
+<h1><%= @game.get_home_team.name  %> versus <%= @game.get_away_team.name  %> </h1>
+<h3>Match summary</h3>
+
+<p></p>
+
+The new result <%= @result %>
 
 <table>
   <tr>
@@ -18,5 +23,13 @@
     <td align="right"> <%= @game.get_away_team.name %></td>
     <td>|</td>
     <td align="right"><%= @game.result %></td>
+
+
+
   </tr>
 </table>
+<BR>
+
+<form action="/games/result/<%=@game.id %>" method="post">
+  <input type="submit" name="result" value="Get Result" />
+</form>

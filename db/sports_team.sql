@@ -21,7 +21,8 @@ id SERIAL PRIMARY KEY,
 date VARCHAR(255),
   home_team INT REFERENCES teams(id),
   away_team INT REFERENCES teams(id),
-  result VARCHAR(255)
+  result VARCHAR(255),
+  scorers VARCHAR(255)
 );
 
 

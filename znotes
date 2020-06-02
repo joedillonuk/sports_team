@@ -18,3 +18,35 @@
 
 lsof -wni tcp:4567
 kill -9 2735
+
+
+def play_game()
+home_players = @self.get_home_team.current_team()
+away_players = @self.get_away_team.current_team()
+return home_players.count
+end
+
+
+
+
+<%= @game.scorers%>
+<% scorers_array = @game.scorers %>
+<BR>
+This is the scorers array: <%= scorers_array = @game.scorers.split %>
+<BR>
+Can it be counted? There is <%= scorers_array.count %> in the array
+<BR>
+<% scorers_array.push("player2.id") %>
+  This is the scorers array: <%= scorers_array%>
+This is what is in the first array index <%= scorers_array[0] %>
+<br>
+<%= @game.play_game_random %>
+<br>
+
+
+This is the raw result <%= @result %><br>
+This is the home score <%= @result[0] %><br>
+This is the away score <%= @result[1] %><br>
+These are the scorers <%= @result[2] %><br>
+This is the result:
+<br>

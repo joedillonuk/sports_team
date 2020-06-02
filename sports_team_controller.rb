@@ -8,7 +8,7 @@ require_relative('controllers/players_controller')
 require_relative('controllers/teams_controller')
 require_relative('controllers/games_controller')
 
-also_reload('./models')
+also_reload('./models/*')
 
 
 get '/' do

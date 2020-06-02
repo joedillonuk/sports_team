@@ -35,3 +35,29 @@ post '/games' do
   @game.save()
   redirect to '/games'
 end
+
+post '/games/result/:id' do
+  @game = Game.find(params['id'].to_i)
+  if @game.result != "TBC"
+    redirect to "/games/#{params['id']}"
+  end
+  @result_array = @game.play_game()
+  
+  if @result_array[0] == @result_array[1]
+    @game.result = "draw"
+    @winner = @game.result
+  elsif @result_array[0] > @result_array[1]
+    @game.result = "#{@game.home_team}"
+    @winner = @game.get_home_team.name
+  elsif @result_array[0] < @result_array[1]
+    @game.result = "#{@game.away_team}"
+    @winner = @game.get_away_team.name
+  else
+  end
+
+  @home_score = @result_array[0]
+  @away_score = @result_array[1]
+  @game.scorers = @result_array.to_s
+  @game.update()
+  redirect to "/games/#{params['id']}"
+end
