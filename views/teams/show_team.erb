@@ -2,5 +2,5 @@
 
 <!-- prints the names of all players in team -->
 <% for player in @players %>
-<%= player.name %><br>
+<a href="/players/<%= player.id%>"><%= player.name %></a><br>
 <% end %>

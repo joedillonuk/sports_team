@@ -2,17 +2,21 @@
 
 <table>
   <tr>
-    <th>Date</th>
+    <th align="left">Date</th>
     <th> </th>
-    <th>Home Team</th>
-    <th> </th>
-    <th>Away Team</th>
+    <th align="left">Home Team</th>
+    <th align="center"> </th>
+    <th align="right">Away Team</th>
+    <th align="center"> </th>
+    <th align="right">Result</th>
   </tr>
   <tr>
-    <td><%= @game.date %></td>
+    <td align="left"><%= @game.date %></td>
     <td>|</td>
-    <td><%= @game.get_home_team.name %></td>
-    <td>vs</td>
-    <td> <%= @game.get_away_team.name %></td>
+    <td align="left"><%= @game.get_home_team.name %></td>
+    <td align="center">vs</td>
+    <td align="right"> <%= @game.get_away_team.name %></td>
+    <td>|</td>
+    <td align="right"><%= @game.result %></td>
   </tr>
 </table>

@@ -2,19 +2,19 @@
 
 <table>
   <tr>
-    <th>Date</th>
+    <th align="left">Date</th>
     <th></th>
-    <th>Home Team</th>
+    <th align="left">Home Team</th>
     <th></th>
-    <th>Away Team</th>
+    <th align="right">Away Team</th>
   </tr>
   <% for game in @games %>
   <tr>
-    <td><a href="/games/<%= game.id %>"><%= game.date %></a></td>
+    <td align="left"><a href="/games/<%= game.id %>"><%= game.date %></a></td>
     <td>|</td>
-    <td><%= game.get_home_team.name %></td>
-    <td> vs </td>
-    <td> <%= game.get_away_team.name %></td>
+    <td align="left"><a href="/teams/<%= game.get_home_team.id%>"><%= game.get_home_team.name %></a></td>
+    <td align="center"> vs </td>
+    <td align="right"><a href="/teams/<%= game.get_away_team.id%>"><%= game.get_away_team.name %></a></td>
   </tr>
   <% end %>
 </table>

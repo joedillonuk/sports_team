@@ -22,3 +22,16 @@ get '/newfixture' do
   @teams = Team.all()
   erb ( :"games/new")
 end
+
+get '/playedyourself' do
+  erb (:"games/playedyourself")
+end
+
+post '/games' do
+  if params["home_team"] == params["away_team"]
+    redirect to '/playedyourself'
+  end
+  @game = Game.new(params)
+  @game.save()
+  redirect to '/games'
+end

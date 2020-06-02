@@ -2,19 +2,19 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th align="left">Name</th>
     <th></th>
-    <th>Country</th>
+    <th align="left">Country</th>
     <th></th>
-    <th>Current Team</th>
+    <th align="left">Current Team</th>
   </tr>
   <% for player in @players %>
   <tr>
-    <td><a href="/players/<%= player.id %>"><%= player.name %></a></td>
+    <td align="left"><a href="/players/<%= player.id %>"><%= player.name %></a></td>
     <td>|</td>
-    <td><%= player.country %></td>
+    <td align="left"><%= player.country %></td>
     <td>|</td>
-    <td><%= player.current_team.name %></td>
+    <td align="left"><a href="/teams/<%=player.current_team.id%>""><%= player.current_team.name %></a></td>
   </tr>
   <% end %>
 </table>

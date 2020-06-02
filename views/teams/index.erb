@@ -2,15 +2,15 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th align="left">Name</th>
     <th></th>
-    <th>Country</th>
+    <th align="left">Country</th>
   </tr>
   <% for team in @teams %>
   <tr>
-    <td><a href="/teams/<%= team.id %>"><%= team.name %></a></td>
+    <td align="left"><a href="/teams/<%= team.id %>"><%= team.name %></a></td>
     <td>|</td>
-    <td><%= team.country %></td>
+    <td align="left"><%= team.country %></td>
   </tr>
   <% end %>
 </table>

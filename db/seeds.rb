@@ -69,7 +69,7 @@ player1 = Player.new({
           # Games
 
           game1 = Game.new({
-            "date" => "01/07/2020",
+            "date" => "2020-07-01",
             "home_team" => team1.id,
             "away_team" => team2.id,
             "result" => "TBC"
@@ -78,7 +78,7 @@ player1 = Player.new({
             game1.save()
 
             game2 = Game.new({
-              "date" => "02/07/2020",
+              "date" => "2020-07-02",
               "home_team" => team2.id,
               "away_team" => team1.id,
               "result" => "TBC"
