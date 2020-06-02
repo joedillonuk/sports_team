@@ -31,5 +31,5 @@ The new result <%= @result %>
 <BR>
 
 <form action="/games/result/<%=@game.id %>" method="post">
-  <input type="submit" name="result" value="Get Result" />
+  <input type="<%=@button%>" name="result" value="Get Result" />
 </form>

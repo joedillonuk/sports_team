@@ -21,6 +21,11 @@ get '/newteam' do
   erb ( :"teams/new")
 end
 
+get '/fixtures/:id' do
+  @team = Team.find(params['id'].to_i)
+erb( :"teams/fixtures")
+end
+
 post '/teams' do
   @team = Team.new(params)
   @team.save()

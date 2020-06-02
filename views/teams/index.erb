@@ -4,13 +4,13 @@
   <tr>
     <th align="left">Name</th>
     <th></th>
-    <th align="left">Country</th>
+    <th align="left">Slogan</th>
   </tr>
   <% for team in @teams %>
   <tr>
     <td align="left"><a href="/teams/<%= team.id %>"><%= team.name %></a></td>
     <td>|</td>
-    <td align="left"><%= team.country %></td>
+    <td align="left"><%= team.slogan %></td>
   </tr>
   <% end %>
 </table>

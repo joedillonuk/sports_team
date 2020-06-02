@@ -5,7 +5,7 @@ DROP TABLE teams;
 CREATE TABLE teams (
 id SERIAL PRIMARY KEY,
 name VARCHAR(255),
-country VARCHAR(255)
+slogan VARCHAR(255)
 );
 
 CREATE TABLE players (

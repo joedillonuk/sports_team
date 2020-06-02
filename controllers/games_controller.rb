@@ -14,6 +14,12 @@ end
 
 get '/games/:id' do
   @game = Game.find(params['id'].to_i)
+  # remove the option to play game if game has already been played
+  if @game.result != "TBC"
+    @button = "hidden"
+  else
+    @button = "submit"
+  end
   erb( :"games/show_game" )
 end
 
@@ -38,11 +44,14 @@ end
 
 post '/games/result/:id' do
   @game = Game.find(params['id'].to_i)
+
+# Simply refresh page if play_game button is clicked again after game already played (should now be invisible)
   if @game.result != "TBC"
     redirect to "/games/#{params['id']}"
   end
+
   @result_array = @game.play_game()
-  
+
   if @result_array[0] == @result_array[1]
     @game.result = "draw"
     @winner = @game.result
@@ -57,7 +66,7 @@ post '/games/result/:id' do
 
   @home_score = @result_array[0]
   @away_score = @result_array[1]
-  @game.scorers = @result_array.to_s
+  @game.scorers = @result_array[2].to_s
   @game.update()
   redirect to "/games/#{params['id']}"
 end

@@ -45,8 +45,6 @@ class Player
       WHERE id = $5"
       values = [@name, @country, @points_won, @team, @id]
       pg_result = SqlRunner.run(sql, values)
-      updated_player = pg_result[0]
-      @id = updated_player['id'].to_i
     end
 
     def current_team

@@ -7,12 +7,12 @@ require( 'pry-byebug' )
 
 class Team
 
-  attr_reader :name, :country, :id
+  attr_reader :name, :slogan, :id
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @country = options['country']
+    @slogan = options['slogan']
   end
 
 
@@ -20,14 +20,14 @@ class Team
     sql = "INSERT INTO teams
     (
       name,
-      country
+      slogan
     )
     VALUES
     (
       $1, $2
     )
     RETURNING id"
-    values = [@name, @country]
+    values = [@name, @slogan]
     pg_result = SqlRunner.run(sql, values)
     @id = pg_result.first()['id'].to_i
   end
@@ -37,16 +37,14 @@ class Team
     sql = "
     UPDATE teams SET (
       name,
-      country
+      slogan
       ) =
       (
         $1,$2
       )
       WHERE id = $3"
-      values = [@name, @country, @id]
+      values = [@name, @slogan, @id]
       pg_result = SqlRunner.run(sql, values)
-      updated_team = pg_result[0]
-      @id = updated_team['id'].to_i
     end
 
     def current_players()
@@ -57,6 +55,9 @@ class Team
      return players
    end
 
+   def scheduled_games()
+     sql
+end
 
     # Class methods
 
