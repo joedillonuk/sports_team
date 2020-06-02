@@ -91,7 +91,7 @@ team1 = Team.new({
                     player4.save()
 
                     player5 = Player.new({
-                      "name" => "Yoko Harmageddon",
+                      "name" => "Harmageddon",
                       "country" => "Japan",
                       "points_won" => 0,
                       "team" => team2.id
@@ -172,7 +172,7 @@ team1 = Team.new({
                                       player13.save()
 
                                       player14 = Player.new({
-                                        "name" => "M. Bison",
+                                        "name" => "Bison",
                                         "country" => "Unknown",
                                         "points_won" => 0,
                                         "team" => team5.id
@@ -190,7 +190,7 @@ team1 = Team.new({
                                           player15.save()
 
                                           player16 = Player.new({
-                                            "name" => "Dan Hibiki",
+                                            "name" => "Dan",
                                             "country" => "Hong Kong",
                                             "points_won" => 0,
                                             "team" => team6.id
@@ -208,7 +208,7 @@ team1 = Team.new({
                                               player17.save()
 
                                               player18 = Player.new({
-                                                "name" => "Yuriko Hibiki",
+                                                "name" => "Yuriko",
                                                 "country" => "Hong Kong",
                                                 "points_won" => 0,
                                                 "team" => team6.id
@@ -218,25 +218,46 @@ team1 = Team.new({
 
 
 
-                    # Games
+                                                # Games
 
-                    game1 = Game.new({
-                      "date" => "2020-07-01",
-                      "home_team" => team1.id,
-                      "away_team" => team2.id,
-                      "result" => "TBC",
-                      "scorers" => "player1.id"
-                      })
+                                                game1 = Game.new({
+                                                  "date" => "2020-07-01",
+                                                  "home_team" => team1.id,
+                                                  "away_team" => team2.id,
+                                                  "result" => "TBC",
+                                                  "scorers" => "player1.id"
+                                                  })
 
-                      game1.save()
+                                                  game1.save()
 
-                      game2 = Game.new({
-                        "date" => "2020-07-02",
-                        "home_team" => team2.id,
-                        "away_team" => team1.id,
-                        "result" => "TBC",
-                        "scorers" => ""
-                        })
+                                                  game2 = Game.new({
+                                                    "date" => "2020-07-02",
+                                                    "home_team" => team2.id,
+                                                    "away_team" => team1.id,
+                                                    "result" => "TBC",
+                                                    "scorers" => ""
+                                                    })
 
 
-                        game2.save()
+                                                    game2.save()
+
+                                                    game3 = Game.new({
+                                                      "date" => "2020-07-03",
+                                                      "home_team" => team3.id,
+                                                      "away_team" => team4.id,
+                                                      "result" => "TBC",
+                                                      "scorers" => ""
+                                                      })
+
+                                                      game3.save()
+
+                                                      game4 = Game.new({
+                                                        "date" => "2020-07-04",
+                                                        "home_team" => team4.id,
+                                                        "away_team" => team3.id,
+                                                        "result" => "TBC",
+                                                        "scorers" => ""
+                                                        })
+
+
+                                                        game4.save()

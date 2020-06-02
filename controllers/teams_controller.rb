@@ -23,6 +23,7 @@ end
 
 get '/fixtures/:id' do
   @team = Team.find(params['id'].to_i)
+  @scheduled_games = @team.scheduled_games()
 erb( :"teams/fixtures")
 end
 

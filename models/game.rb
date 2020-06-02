@@ -69,7 +69,20 @@ class Game
     end
 
 
-# Testing - no longer being used
+    def result_for_team(team_id)
+string = "nothing"
+      if self.result == "TBC"
+        string = "TBC"
+      elsif self.result == team_id.to_s
+        string = "Win"
+      else
+        string = "Loss"
+      end
+      return string
+    end
+
+
+    # Testing - no longer being used
     # def play_game_random()
     #
     #   winner = rand(2)
@@ -98,7 +111,7 @@ class Game
           end
         end
       end
-result_array = [home_score, away_score, scorers_array]
+      result_array = [home_score, away_score, scorers_array]
       result = "the score is #{home.name} #{home_score} - #{away_score} #{away.name}"
       return result_array
     end

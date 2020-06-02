@@ -1,1 +1,28 @@
 <h1>All <%= @team.name %> matches</h1>
+
+
+<table>
+  <tr>
+    <th align="left">Date</th>
+    <th></th>
+    <th align="left">Home Team</th>
+    <th></th>
+    <th align="right">Away Team</th>
+    <th>_</th>
+    <th align="right">Result</th>
+  </tr>
+  <% for game in @scheduled_games %>
+  <tr>
+    <td align="left"><a href="/games/<%= game.id %>"><%= game.date %></a></td>
+    <td>|</td>
+    <td align="left"><a href="/teams/<%= game.get_home_team.id%>"><%= game.get_home_team.name %></a></td>
+    <td align="center"> vs </td>
+  <td align="right"><a href="/teams/<%= game.get_away_team.id%>"><%= game.get_away_team.name %></a></td>
+  <td>|</td>
+  <td align="right"><%= game.result_for_team(@team.id)%></td>
+
+  </tr>
+  <% end %>
+</table>
+<br>
+<h4><a href="/newfixture">Add new fixture</a></h4>

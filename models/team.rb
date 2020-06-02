@@ -48,16 +48,20 @@ class Team
     end
 
     def current_players()
-     sql = "SELECT * FROM players WHERE team = $1;"
-     values = [@id]
-     pg_result = SqlRunner.run(sql, values)
-     players = pg_result.map { |player| Player.new(player)}
-     return players
-   end
+      sql = "SELECT * FROM players WHERE team = $1;"
+      values = [@id]
+      pg_result = SqlRunner.run(sql, values)
+      players = pg_result.map { |player| Player.new(player)}
+      return players
+    end
 
-   def scheduled_games()
-     sql
-end
+    def scheduled_games()
+      sql = "SELECT * FROM games WHERE home_team = $1 OR away_team = $1;"
+      values = [@id]
+      pg_result = SqlRunner.run(sql, values)
+      scheduled_games = pg_result.map {|game| Game.new(game)}
+      return scheduled_games
+    end
 
     # Class methods
 
