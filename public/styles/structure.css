@@ -1,12 +1,18 @@
 body {
-  background: black url('/images/background.jpg');
-  background-size: 100%;
+  background: teal;
+  background-size: cover;
   background-repeat: no-repeat;
   color: papayawhip;
-  font-family: 'Merriweather', serif;
-  padding: 0px;
-  margin: 0px;
+  font-family: 'futura', serif;
+  padding: 10px;
+  margin: 10px;
+
 }
+
+.bg {
+
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Courier New', cursive;
@@ -70,4 +76,8 @@ input { display: table-cell; }
 #content {
   border-left: 1px solid darkred;
   padding-left: 25px;
+}
+
+.widthSet {
+    max-width: 300px;
 }
