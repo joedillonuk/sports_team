@@ -20,6 +20,7 @@ p {
 }
 
 
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Futura';
   margin: 0px;
@@ -86,7 +87,7 @@ input { display: table-cell; }
   border-left: 5px solid teal;
   padding: 25px;
   padding-right: 200px;
-background: linear-gradient(90deg, rgba(0,128,128,1) 0%, rgba(0,128,128,0) 100%);}
+background: linear-gradient(90deg, rgba(0,128,128,1) 40%, rgba(0,128,128,0) 100%);}
 
 
 .widthSet {

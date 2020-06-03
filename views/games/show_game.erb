@@ -1,11 +1,17 @@
 <h1><%= @game.get_home_team.name  %> versus <%= @game.get_away_team.name  %> </h1>
+
+<% if @game.result != "TBC" %>
 <br><h3>Match summary</h3>
 <br>
+
 <p>The winner of this match is <b><%=@game.result %></b>!
   <br><br>
   The final score was:<br>
   <%= @game.get_home_team.name %> <%= @game.home_result %> - <%= @game.away_result %> <%= @game.get_away_team.name %>
   </p>
+  <% else %>
+  <p>This match is yet to be played</p>
+  <% end %>
 <br>
 <table>
   <tr>

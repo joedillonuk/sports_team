@@ -50,3 +50,34 @@ This is the away score <%= @result[1] %><br>
 These are the scorers <%= @result[2] %><br>
 This is the result:
 <br>
+
+leagues
+id    | team_id  |  Team score | Team concede | team_played | team_won | team draw
+
+CREATE TABLE leagues (
+id SERIAL PRIMARY KEY,
+team_id INT REFERENCES teams(id),
+team_score INT,
+team_concede INT,
+team_played INT,
+team_won INT,
+team_draw INT
+);
+
+.............................
+set up league...
+get '/league'
+
+@teams = Team.all()
+
+for team in @teams
+if League.team_in_league? = false
+@league = league.new(team.id)
+@league.save()
+end
+@league_table = League.all()
+
+
+
+
+erb :league.erb

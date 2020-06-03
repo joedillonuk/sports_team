@@ -1,3 +1,4 @@
+DROP TABLE leagues;
 DROP TABLE games;
 DROP TABLE players;
 DROP TABLE teams;
@@ -25,6 +26,16 @@ CREATE TABLE games (
   away_result INT,
   result VARCHAR(255),
   scorers VARCHAR(255)
+);
+
+CREATE TABLE leagues (
+id SERIAL PRIMARY KEY,
+team_id INT REFERENCES teams(id),
+scored INT,
+conceded INT,
+games_played INT,
+wins INT,
+draws INT
 );
 
 
