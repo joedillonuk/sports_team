@@ -46,7 +46,7 @@ team1 = Team.new({
           team5.save()
 
           team6 = Team.new({
-            "name" => "Saikyo-ryu Dojo",
+            "name" => "Saikyo",
             "slogan" => "SAIKYO!"
             })
 
@@ -227,7 +227,7 @@ team1 = Team.new({
                                                   "home_result" => 0,
                                                   "away_result" => 0,
                                                   "result" => "TBC",
-                                                  "scorers" => "player1.id"
+                                                  "scorers" => ""
                                                   })
 
                                                   game1.save()

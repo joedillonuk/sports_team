@@ -1,0 +1,25 @@
+<h1>Edit <%= @player.name %></h1>
+
+<form action="/players/<%= @player.id %>" method="post">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" value="<%=@player.name%>" required>
+  <br>
+  <label for="country"> Country: </label>
+  <input id="country" type="text" name="country" value="<%=@player.country%>" required>
+  <br>
+  <label for="team-select"> Select A Team </label>
+  <select id="team-select" name="team">
+    <% for team in @teams %>
+    <option value = "<%= team.id%> "> <%= team.name %> </option>
+    <% end %>
+    <label for="points_won" type="hidden"></label>
+    <input id="points-won" type="hidden" name="points_won" value="<%=@player.points_won%>">
+<br><br>
+
+
+
+<input type="submit" value="Confirm Edit">
+<br>
+<a href="/players/<%= @player.id %>">Cancel</a>
+</form>

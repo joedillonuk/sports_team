@@ -16,6 +16,21 @@ get '/teams/:id' do
   erb( :"teams/show_team" )
 end
 
+post '/teams/:id' do
+  @team = Team.new(params)
+  @team.update()
+  redirect to "teams/#{params['id']}"
+end
+
+
+get '/teams/edit/:id' do
+  @team = Team.find(params['id'].to_i)
+  erb( :"teams/edit")
+end
+
+
+
+
 get '/newteam' do
   @teams = Team.all()
   erb ( :"teams/new")
@@ -24,7 +39,7 @@ end
 get '/fixtures/:id' do
   @team = Team.find(params['id'].to_i)
   @scheduled_games = @team.scheduled_games()
-erb( :"teams/fixtures")
+  erb( :"teams/fixtures")
 end
 
 post '/teams' do

@@ -1,13 +1,30 @@
+<body style="background-image: url('/images/bg<%= @team.name%>.jpg');">
+
 <h1><%= @team.name %> </h1>
 <p><i>"<%= @team.slogan %>"</i></p>
 <BR>
-<h4><a href="/fixtures/<%= @team.id %>">See all <%= @team.name%> matches</a></h4>
+<h4><a href="/fixtures/<%= @team.id %>">See all <%= @team.name%> matches</a> | <a href="/teams/edit/<%= @team.id %>">Edit Team</a></h4>
 <BR>
 
 <!-- prints the names of all players in team -->
 
+
+
 <h4>Players</h4>
 <BR>
+  <table>
+    <tr>
 <% for player in @players %>
-<a href="/players/<%= player.id%>"><%= player.name %></a><br>
+<th>
+  <a href="/players/<%= player.id%>"><%= player.name %></a>
+  </th>
 <% end %>
+<tr>
+  <% for player in @players %>
+  <td>
+    <img src="/images/image<%= player.name %>.gif" class="widthSet" alt="<%= player.name %>">
+    </td>
+  <% end %>
+
+</table>
+</body>

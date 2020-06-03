@@ -10,7 +10,7 @@
     <th align="center"></th>
 
     <th>Score</th>
-        <th align="center"></th>
+    <th align="center"></th>
 
     <th align="right">Away Team</th>
   </tr>
@@ -20,19 +20,19 @@
     <td>|</td>
     <td align="left"><a href="/teams/<%= game.get_home_team.id%>"><%= game.get_home_team.name %></a></td>
 
-<% if game.result == "TBC" %>
-  <td align="center">TBC</td>
-  <% else %>
+    <% if game.result == "TBC" %>
+    <td align="center">TBC</td>
+    <% else %>
     <td align="center"><%= game.home_result %></td>
-<% end %>
+    <% end %>
 
     <td align="center"> vs </td>
 
 
     <% if game.result == "TBC" %>
-      <td align="center">TBC</td>
-      <% else %>
-        <td align="center"><%= game.away_result %></td>
+    <td align="center">TBC</td>
+    <% else %>
+    <td align="center"><%= game.away_result %></td>
     <% end %>
 
     <td align="right"><a href="/teams/<%= game.get_away_team.id%>"><%= game.get_away_team.name %></a></td>

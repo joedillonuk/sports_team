@@ -19,7 +19,11 @@ get '/players/:id' do
   erb( :"players/show_player" )
 end
 
-
+get '/players/edit/:id' do
+  @teams = Team.all()
+  @player = Player.find(params['id'].to_i)
+  erb( :"players/edit")
+end
 
 get '/newplayer' do
   @teams = Team.all()

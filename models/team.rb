@@ -8,6 +8,7 @@ require( 'pry-byebug' )
 class Team
 
   attr_reader :name, :slogan, :id
+  attr_writer :name, :slogan, :id
 
   def initialize( options )
     @id = options['id'].to_i if options['id']

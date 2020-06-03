@@ -1,0 +1,20 @@
+<body style="background-image: url('/images/bg<%= @team.name%>.jpg');">
+
+
+<h1>Edit <%=@team.name %></h1>
+<br>
+<form action="/teams/<%=@team.id%>" method="post">
+  <p>
+  <label for="name">New name:</label>
+  <input id="name" type="text" name="name" value="<%= @team.name %>" required>
+</p>
+<p>
+  <label for="slogan">New slogan:</label>
+  <input id="slogan" type="text" name="slogan" value="<%= @team.slogan %>" required>
+</p>
+<BR>
+  <input type="submit" value="Confirm Edit">
+  <br>
+  <a href="/teams/<%= @team.id %>">Cancel</a>
+
+</form>

@@ -6,11 +6,11 @@ body {
   font-family: 'futura', serif;
   padding: 10px;
   margin: 10px;
-
 }
 
 p {
   width: 500px;
+
 }
 
 .bg {
@@ -42,9 +42,8 @@ a:hover, a:active, a:focus {
 nav {
   padding: 0px;
   margin: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-     background-image: linear-gradient(#1d3a43, #244954);
+  padding: 25px;
+     background-image: linear-gradient(#1d3a43, rgba(0,128,128,0) 100%);
 }
 
 nav ul li {
@@ -75,15 +74,17 @@ main {
   flex-direction: column;
 }
 
-form  { display: table;      }
+form  { display: inline-block;}
 p     { display: table-row;  }
 label { display: table-cell; }
 input { display: table-cell; }
 
 #content {
   border-left: 5px solid teal;
-  padding-left: 25px;
-}
+  padding: 25px;
+  padding-right: 200px;
+background: linear-gradient(90deg, rgba(0,128,128,1) 0%, rgba(0,128,128,0) 100%);}
+
 
 .widthSet {
     max-width: 300px;
