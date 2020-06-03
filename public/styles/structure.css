@@ -1,3 +1,5 @@
+
+
 body {
   background: #244954;
   background-size: cover;
@@ -80,6 +82,7 @@ label { display: table-cell; }
 input { display: table-cell; }
 
 #content {
+
   border-left: 5px solid teal;
   padding: 25px;
   padding-right: 200px;
@@ -87,5 +90,9 @@ background: linear-gradient(90deg, rgba(0,128,128,1) 0%, rgba(0,128,128,0) 100%)
 
 
 .widthSet {
-    max-width: 300px;
+    max-width: 200px;
+}
+
+.widthSet2 {
+    max-width: 450px;
 }
