@@ -4,6 +4,7 @@ require_relative( './team.rb')
 class Player
 
   attr_reader :name, :country, :points_won, :team, :id
+  attr_writer :points_won, :team
 
   def initialize( options )
     @id = options['id'].to_i if options['id']

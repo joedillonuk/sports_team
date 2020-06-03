@@ -1,0 +1,6 @@
+th, td {
+
+  padding: 2px;
+}
+
+tr:hover {background-color: teal;}

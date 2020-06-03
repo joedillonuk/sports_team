@@ -224,6 +224,8 @@ team1 = Team.new({
                                                   "date" => "2020-07-01",
                                                   "home_team" => team1.id,
                                                   "away_team" => team2.id,
+                                                  "home_result" => 0,
+                                                  "away_result" => 0,
                                                   "result" => "TBC",
                                                   "scorers" => "player1.id"
                                                   })
@@ -234,6 +236,8 @@ team1 = Team.new({
                                                     "date" => "2020-07-02",
                                                     "home_team" => team2.id,
                                                     "away_team" => team1.id,
+                                                    "home_result" => 0,
+                                                    "away_result" => 0,
                                                     "result" => "TBC",
                                                     "scorers" => ""
                                                     })
@@ -245,6 +249,8 @@ team1 = Team.new({
                                                       "date" => "2020-07-03",
                                                       "home_team" => team3.id,
                                                       "away_team" => team4.id,
+                                                      "home_result" => 0,
+                                                      "away_result" => 0,
                                                       "result" => "TBC",
                                                       "scorers" => ""
                                                       })
@@ -255,6 +261,8 @@ team1 = Team.new({
                                                         "date" => "2020-07-04",
                                                         "home_team" => team4.id,
                                                         "away_team" => team3.id,
+                                                        "home_result" => 0,
+                                                        "away_result" => 0,
                                                         "result" => "TBC",
                                                         "scorers" => ""
                                                         })

@@ -3,8 +3,8 @@ require_relative( './player.rb')
 
 class Game
 
-  attr_reader :date, :home_team, :away_team, :result, :id
-  attr_writer :result, :scorers
+  attr_reader :date, :home_team, :away_team, :home_result, :away_result, :result, :scorers, :id
+  attr_writer :date, :home_team, :away_team, :home_result, :away_result, :result, :scorers, :id
 
 
   def initialize( options )
@@ -12,6 +12,8 @@ class Game
     @date = options['date']
     @home_team = options['home_team'].to_i
     @away_team = options['away_team'].to_i
+    @home_result = options['home_result'].to_i
+    @away_result = options['away_result'].to_i
     @result = options['result']
     @scorers = options['scorers']
   end
@@ -22,15 +24,17 @@ class Game
       date,
       home_team,
       away_team,
+      home_result,
+      away_result,
       result,
       scorers
     )
     VALUES
     (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6, $7
     )
     RETURNING id"
-    values = [@date, @home_team, @away_team, @result, @scorers]
+    values = [@date, @home_team, @away_team, @home_result, @away_result, @result, @scorers]
     pg_result = SqlRunner.run(sql, values)
     @id = pg_result.first()['id'].to_i
   end
@@ -41,14 +45,16 @@ class Game
       date,
       home_team,
       away_team,
+      home_result,
+      away_result,
       result,
       scorers
       ) =
       (
-        $1, $2, $3, $4, $5
+        $1, $2, $3, $4, $5, $6, $7
       )
-      WHERE id = $6"
-      values = [@date, @home_team, @away_team, @result, @scorers, @id]
+      WHERE id = $8"
+      values = [@date, @home_team, @away_team, @home_result, @away_result, @result, @scorers, @id]
       pg_result = SqlRunner.run(sql, values)
     end
 
@@ -69,11 +75,13 @@ class Game
     end
 
 
-    def result_for_team(team_id)
-string = "nothing"
+    def result_for_team(team_name)
+      string = "nothing"
       if self.result == "TBC"
         string = "TBC"
-      elsif self.result == team_id.to_s
+      elsif self.result == "draw"
+          string = "Draw"
+      elsif self.result == team_name
         string = "Win"
       else
         string = "Loss"
@@ -82,15 +90,7 @@ string = "nothing"
     end
 
 
-    # Testing - no longer being used
-    # def play_game_random()
-    #
-    #   winner = rand(2)
-    #   if winner == 0
-    #     return "#{self.get_home_team.name} wins #{winner}"
-    #   end
-    #   return "#{self.get_away_team.name} wins #{winner}"
-    # end
+
 
     def play_game()
       scorers_array = []
@@ -98,22 +98,43 @@ string = "nothing"
       away = self.get_away_team
       home_score = 0
       away_score = 0
+
       for player in home.current_players
         for opponent in away.current_players
           chance = rand(4)
           if chance == 0
             scorers_array.push(player.name)
+            player.points_won += 1
+            player.update()
             home_score += 1
           elsif chance == 1
             scorers_array.push(opponent.name)
+            opponent.points_won += 1
+            opponent.update()
             away_score += 1
           else
           end
         end
       end
+
+      self.home_result = home_score
+      self.away_result = away_score
+
+      if self.home_result == self.away_result
+        self.result = "draw"
+      elsif self.home_result > self.away_result
+        self.result = "#{self.get_home_team.name}"
+      elsif self.home_result < self.away_result
+        self.result = "#{self.get_away_team.name}"
+      else
+      end
+
+      self.scorers = scorers_array.to_s
+      self.update()
+
       result_array = [home_score, away_score, scorers_array]
-      result = "the score is #{home.name} #{home_score} - #{away_score} #{away.name}"
-      return result_array
+      result_summary = "The final score is #{home.name} #{home_score} - #{away_score} #{away.name}. #{self.result} win!"
+      return result_summary
     end
 
 

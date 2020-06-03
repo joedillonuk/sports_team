@@ -1,10 +1,12 @@
 <h1><%= @game.get_home_team.name  %> versus <%= @game.get_away_team.name  %> </h1>
-<h3>Match summary</h3>
-
-<p></p>
-
-The new result <%= @result %>
-
+<br><h3>Match summary</h3>
+<br>
+<p>The winner of this match is <b><%=@game.result %></b>!
+  <br><br>
+  The final score was:<br>
+  <%= @game.get_home_team.name %> <%= @game.home_result %> - <%= @game.away_result %> <%= @game.get_away_team.name %>
+  </p>
+<br>
 <table>
   <tr>
     <th align="left">Date</th>
@@ -13,7 +15,7 @@ The new result <%= @result %>
     <th align="center"> </th>
     <th align="right">Away Team</th>
     <th align="center"> </th>
-    <th align="right">Result</th>
+    <th align="right">Winner</th>
   </tr>
   <tr>
     <td align="left"><%= @game.date %></td>

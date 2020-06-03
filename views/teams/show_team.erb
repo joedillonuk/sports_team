@@ -1,7 +1,13 @@
 <h1><%= @team.name %> </h1>
-<h4><a href="/fixtures/<%= @team.id %>">All <%= @team.name%> matches</a></h4>
+<p><i>"<%= @team.slogan %>"</i></p>
 <BR>
+<h4><a href="/fixtures/<%= @team.id %>">See all <%= @team.name%> matches</a></h4>
+<BR>
+
 <!-- prints the names of all players in team -->
+
+<h4>Players</h4>
+<BR>
 <% for player in @players %>
 <a href="/players/<%= player.id%>"><%= player.name %></a><br>
 <% end %>

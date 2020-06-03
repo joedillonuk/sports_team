@@ -19,10 +19,9 @@
     <td align="center"> vs </td>
   <td align="right"><a href="/teams/<%= game.get_away_team.id%>"><%= game.get_away_team.name %></a></td>
   <td>|</td>
-  <td align="right"><%= game.result_for_team(@team.id)%></td>
+  <td align="right"><%= game.result_for_team(@team.name)%></td>
 
   </tr>
   <% end %>
 </table>
 <br>
-<h4><a href="/newfixture">Add new fixture</a></h4>

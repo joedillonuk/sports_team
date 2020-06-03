@@ -3,9 +3,9 @@ DROP TABLE players;
 DROP TABLE teams;
 
 CREATE TABLE teams (
-id SERIAL PRIMARY KEY,
-name VARCHAR(255),
-slogan VARCHAR(255)
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  slogan VARCHAR(255)
 );
 
 CREATE TABLE players (
@@ -17,10 +17,12 @@ CREATE TABLE players (
 );
 
 CREATE TABLE games (
-id SERIAL PRIMARY KEY,
-date VARCHAR(255),
+  id SERIAL PRIMARY KEY,
+  date VARCHAR(255),
   home_team INT REFERENCES teams(id),
   away_team INT REFERENCES teams(id),
+  home_result INT,
+  away_result INT,
   result VARCHAR(255),
   scorers VARCHAR(255)
 );
